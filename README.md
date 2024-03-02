@@ -1,2 +1,2 @@
 # PortfolioX
-A well designed responsive Portfolio Website to showcase Technical Projects and Personal Skills with Enhanced SEO by using meta tags and rich texts. Developed in HTML, CSS (Bootstrap) and JS. 
+A Well-designed Responsive Portfolio Website to showcase Projects and Personal Skills with Enhanced Search Engine Optimization (SEO) by using Meta tags and Rich text. Developed in HTML, CSS (Bootstrap) and JS. It also uses Service Worker to load the offline version of the Website.
