@@ -1,0 +1,300 @@
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T62YZYDGF3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T62YZYDGF3');
+</script>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>aiXperts</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="Assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="Assets/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="Assets/images/favicon-16x16.png">
+	<link rel="manifest" href="Assets/images/site.webmanifest">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+    />
+    <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Assets/css/style.css" rel="stylesheet">
+    
+	<style>
+  body{
+    margin:0;
+  }
+#userarea {
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+
+.copy{
+  color: rgba(0,0,0,0.6);
+  font-size:12px;
+    font-family: Arial;
+
+}
+#dwnbtn{
+    background-color: white;
+    color:#4B4186 !important;
+    padding: 5px 9px 5px 9px;
+    border: #4B4186 solid 1px;
+	border-radius: 11px;
+    text-decoration: none;
+}
+
+.Thread{
+
+
+  font-family: 'Poppins';
+  border: solid 1px;
+  border-radius: 10px;
+  color:black;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin:0 10% 0 10%;
+  transition:ease 1s;
+
+  
+}
+.Thread:hover{
+  
+  transition:ease 0.2s;
+	color:white !important;
+  background:black;
+  
+}
+
+.Thread:hover p{
+  
+  transition:ease 0.2s;
+	color:white !important;
+
+  
+}
+.Thread:hover a{
+  transition:ease 0.2s;
+  color:#ffffff !important;
+  
+}
+
+#dwnbtn:hover{
+    background-color: wheat;
+    color:white;
+    padding: 5px 9px 5px 9px;
+    border: white solid 1px;
+    text-decoration: none;
+    animation: fadeInAnimation ease 1s ;
+    animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0.3; 
+  }
+  100% {
+      opacity: 1;
+   }
+}
+@keyframes fadeInAnimation2 {
+	  0% {
+		  opacity: 0.9; 
+	  }
+	  50% {
+		  opacity: 1;
+	   }
+	   100%{
+		opacity: 0.9;
+	   }
+	}
+  @keyframes fadeInAnimation3 {
+	  0% {
+		  opacity: 0.6; 
+	  }
+	  50% {
+		  opacity: 1;
+	   }
+	   100%{
+		opacity: 0.6;
+	   }
+	}
+#preloader {
+		background: #FFF url(images/apple-touch-icon.png) no-repeat center center; 
+		height: 100vh; 
+		width: 100%;
+		position: fixed;
+		background-size: 60px;
+		z-index: 100; 
+		animation: fadeInAnimation2 ease 3s;
+	  animation-iteration-count: 999;
+	  animation-fill-mode: forwards;
+	}
+  .development{
+    color:#4B4186;
+    font-size:20px;
+    animation: fadeInAnimation3 ease 2s;
+	  animation-iteration-count: 999;
+	  animation-fill-mode: forwards;
+    font-family: 'Poppins';
+  }
+  .ThreadImg{
+    height:60%;
+    width: 79%;
+	border-radius:10px;
+    
+  }
+  .hero1{
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  .header{
+    color:#3c1b6b;
+    font-size:30px;
+    font-family: Poppins;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  .dailyv{
+     border: solid 1px;
+     border-radius: 15px;
+     color:#4B4186;
+     width: 80%;
+     height: 50%;
+
+    }
+    #vid{
+      border-radius: 10px;
+
+    }
+   
+ 
+.neon
+{
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 0;
+    border-radius: 0;
+}
+.neon::after
+{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background-color: #fff;
+    left:0;
+    top:0;
+    
+    border-radius:0  0 70px 70px ;
+
+}
+.neon::before
+{
+    content: '';
+    background: linear-gradient(45deg,#002BFF,#FF00C8,#FF7300,#FFFB00,#48FF00,#FF0000,
+    #00FFD5,#FF0000);
+    position: absolute;
+    top:-2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:calc(100% + 4px);
+    filter: blur(8px);
+	animation:glowing 15s ;
+    transition: opacity .3s ease-in-out;
+    border-radius:0 0 70px 70px;
+    opacity: 1;
+}
+
+
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50%{ background-position: 400% 0;}
+    100%{background-position: 0 0;}    
+}
+#spanner1{
+  color:#e94cdc;
+}
+ 
+#spanner2{
+  color:#5951f0;
+}
+
+	</style>
+</head>
+
+<body >
+<center>
+  <h2 class=" neon"><img src="Assets/aixperts/ai.png" style="width:10%;margin:5px" /></h2>
+  <br><br><br>
+  
+  <h5 class="head hero1">We <span id="spanner1">Transform</span> AI, to <span id="spanner2">Transform</span> Mankind.</h5>
+  
+<p class="header"> Come Explore our Open Community!</p>
+
+  <br><br><br><br>
+  <div class="Thread">
+    <h2 class="head">AI? We are here!</h2><br><p> We are a group of Technical experts, who aims to solve day-to-day problems of public using AI-based Open Source Technology. Need AI? <a style="color:black; text-decoration:underline;" href="mailto:vijesh.moses@gmail.com">Reach out to aiXperts!</a></p>
+<video width="80%"  autoplay muted loop id="vid" >
+  <source src="Assets/aixperts/aiXpertsPromo.mp4">
+  
+</video>
+
+  </div>
+  <br><br><br><br><br><br>
+
+
+
+  <div class="Thread">
+    <h2 class="head">Our Ongoing Open Projects⚒️</h2><br>
+    <h3>DustXpert (using Deep Learning and Arduino with TinyML)</h3>
+<div style="position: relative; width: 100%; height: 0; padding-top: 70.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGLrqTSh0M&#x2F;FPfVHEenw859bC7yC60goQ&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<br>
+<a id="dwnbtn" href="https://www.canva.com/design/DAGLrqTSh0M/MRP5522y2-dIcLXFSOKtrQ/edit?utm_content=DAGLrqTSh0M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Request Access to Contribute</a>
+ <br><br>
+  <p style="color: black ; ">Contributors: <a style="color: black;text-decoration: underline;" href="Assets/aixperts/aiXpertsCertVijesh.pdf" target="_blank">Vijesh Pethuram K</a >, <a style="color: black;text-decoration: underline;" href="Assets/aixperts/aiXpertsCertPrabhu.pdf" target="_blank">Prabhu R</a> and <a style="color: black;text-decoration: underline;" target="_blank" href="Assets/aixperts/aiXpertsCertSriram.pdf">Sriram R</a>.</p>  
+
+</div>
+  
+      <br><br><br><br>
+  <div class="Thread">
+    <h2 class="head">Join our Global Community!</h2><br>    
+	<img src="Assets/aixperts/model.png" class="ThreadImg"/><br><br><br>
+	 <p>This is an Open Community. Anyone who contributes to any project hosted by the community or shares a self-made AI project to be open to others can join this community.
+<a style="color:black; text-decoration:underline;" href="mailto:vijesh.moses@gmail.com">Reach out to aiXperts!</a></p>
+  </div>
+  <br><br>
+  
+  
+  
+  
+  
+  
+  
+  <br>
+  
+  <p>©️2024, <span id="spanner1" style="font-family: ubuntu;font-size:25px;">ai</span><span id="spanner2" style="font-family: ubuntu;font-size:25px;">Xperts</span> (from EdXperts).
+  <br>Site developed with ❤️ by <a href="./index.html">Vijesh Pethuram K</a>.</p>
+  <br>
+</center>
+
+</body>

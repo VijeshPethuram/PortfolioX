@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T62YZYDGF3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T62YZYDGF3');
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>You are offline</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/images/favicon-16x16.png">
+    <link rel="manifest" href="Assets/images/site.webmanifest">
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 40px auto 16px; padding: 32px 24px 16px; border-radius: 30px; }
+      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: #4B4186; margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 14px 0 24px; font-size: 14px;}
+      #message a,button { display: block; border: none;text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 10px;  }
+      #message, #message a,#message button { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #4B4186; }
+      }
+      
+canvas {
+  border: 2px solid rgb(151, 149, 149);
+}
+    </style>
+  </head>
+  <body>
+    <div id="message"><center>
+      
+     
+      <h1>Oops! Seems like you are Offline.</h1>
+      <button type="button">⤾ Reload</button>
+	  
+      <h3>Why are you seeing this?</h3>
+	  <p >You may be offline or the site may be temporarily down. The site will automatically reload once connection is established. <br></p>
+      <script>
+        // Manual reload feature.
+        document.querySelector("button").addEventListener("click", () => {
+          window.location.reload();
+        });
+  
+        // Listen to changes in the network state, reload when online.
+        // This handles the case when the device is completely offline.
+        window.addEventListener('online', () => {
+          window.location.reload();
+        });
+  
+       
+      </script>
+	  <h3>Why not play a game while waiting?<br>(Use arrow keys to move the snake...)</h3>
+    <canvas id="stage" height="400" width="300"></canvas>
+      <br><p style="color: rgba(0,0,0,0.6);">Snake Game belongs to its respective developers. <br>©️2024 Vijesh Pethuram K. All rights reserved.<br>Designed and developed by Vijesh Pethuram K.</p>
+    </div><br><br>
+    
+      <script>
+var Game      = Game      || {};
+var Keyboard  = Keyboard  || {}; 
+var Component = Component || {};
+
+/**
+ * Keyboard Map
+ */
+Keyboard.Keymap = {
+  37: 'left',
+  38: 'up',
+  39: 'right',
+  40: 'down'
+};
+
+/**
+ * Keyboard Events
+ */
+Keyboard.ControllerEvents = function() {
+  
+  // Setts
+  var self      = this;
+  this.pressKey = null;
+  this.keymap   = Keyboard.Keymap;
+  
+  // Keydown Event
+  document.onkeydown = function(event) {
+    self.pressKey = event.which;
+  };
+  
+  // Get Key
+  this.getKey = function() {
+    return this.keymap[this.pressKey];
+  };
+};
+
+/**
+ * Game Component Stage
+ */
+Component.Stage = function(canvas, conf) {  
+  
+  // Sets
+  this.keyEvent  = new Keyboard.ControllerEvents();
+  this.width     = canvas.width;
+  this.height    = canvas.height;
+  this.length    = [];
+  this.food      = {};
+  this.score     = 0;
+  this.direction = 'right';
+  this.conf      = {
+    cw   : 10,
+    size : 5,
+    fps  : 1000
+  };
+  
+  // Merge Conf
+  if (typeof conf == 'object') {
+    for (var key in conf) {
+      if (conf.hasOwnProperty(key)) {
+        this.conf[key] = conf[key];
+      }
+    }
+  }
+  
+};
+
+/**
+ * Game Component Snake
+ */
+Component.Snake = function(canvas, conf) {
+  
+  // Game Stage
+  this.stage = new Component.Stage(canvas, conf);
+  
+  // Init Snake
+  this.initSnake = function() {
+    
+    // Itaration in Snake Conf Size
+    for (var i = 0; i < this.stage.conf.size; i++) {
+      
+      // Add Snake Cells
+      this.stage.length.push({x: i, y:0});
+    }
+  };
+  
+  // Call init Snake
+  this.initSnake();
+  
+  // Init Food  
+  this.initFood = function() {
+    
+    // Add food on stage
+    this.stage.food = {
+      x: Math.round(Math.random() * (this.stage.width - this.stage.conf.cw) / this.stage.conf.cw), 
+      y: Math.round(Math.random() * (this.stage.height - this.stage.conf.cw) / this.stage.conf.cw), 
+    };
+  };
+  
+  // Init Food
+  this.initFood();
+  
+  // Restart Stage
+  this.restart = function() {
+    this.stage.length            = [];
+    this.stage.food              = {};
+    this.stage.score             = 0;
+    this.stage.direction         = 'right';
+    this.stage.keyEvent.pressKey = null;
+    this.initSnake();
+    this.initFood();
+  };
+};
+
+/**
+ * Game Draw
+ */
+Game.Draw = function(context, snake) {
+  
+  // Draw Stage
+  this.drawStage = function() {
+    
+    // Check Keypress And Set Stage direction
+    var keyPress = snake.stage.keyEvent.getKey(); 
+    if (typeof(keyPress) != 'undefined') {
+      snake.stage.direction = keyPress;
+    }
+    
+    // Draw White Stage
+    context.fillStyle = "white";
+    context.fillRect(0, 0, snake.stage.width, snake.stage.height);
+    
+    // Snake Position
+    var nx = snake.stage.length[0].x;
+    var ny = snake.stage.length[0].y;
+    
+    // Add position by stage direction
+    switch (snake.stage.direction) {
+      case 'right':
+        nx++;
+        break;
+      case 'left':
+        nx--;
+        break;
+      case 'up':
+        ny--;
+        break;
+      case 'down':
+        ny++;
+        break;
+    }
+    
+    // Check Collision
+    if (this.collision(nx, ny) == true) {
+      snake.restart();
+      return;
+    }
+    
+    // Logic of Snake food
+    if (nx == snake.stage.food.x && ny == snake.stage.food.y) {
+      var tail = {x: nx, y: ny};
+      snake.stage.score++;
+      snake.initFood();
+    } else {
+      var tail = snake.stage.length.pop();
+      tail.x   = nx;
+      tail.y   = ny;  
+    }
+    snake.stage.length.unshift(tail);
+    
+    // Draw Snake
+    for (var i = 0; i < snake.stage.length.length; i++) {
+      var cell = snake.stage.length[i];
+      this.drawCell(cell.x, cell.y);
+    }
+    
+    // Draw Food
+    this.drawCell(snake.stage.food.x, snake.stage.food.y);
+    
+    // Draw Score
+    context.fillText('Score: ' + snake.stage.score, 5, (snake.stage.height - 5));
+  };
+  
+  // Draw Cell
+  this.drawCell = function(x, y) {
+    context.fillStyle = 'rgb(170, 170, 170)';
+    context.beginPath();
+    context.arc((x * snake.stage.conf.cw + 6), (y * snake.stage.conf.cw + 6), 4, 0, 2*Math.PI, false);    
+    context.fill();
+  };
+  
+  // Check Collision with walls
+  this.collision = function(nx, ny) {  
+    if (nx == -1 || nx == (snake.stage.width / snake.stage.conf.cw) || ny == -1 || ny == (snake.stage.height / snake.stage.conf.cw)) {
+      return true;
+    }
+    return false;    
+  }
+};
+
+
+/**
+ * Game Snake
+ */
+Game.Snake = function(elementId, conf) {
+  
+  // Sets
+  var canvas   = document.getElementById(elementId);
+  var context  = canvas.getContext("2d");
+  var snake    = new Component.Snake(canvas, conf);
+  var gameDraw = new Game.Draw(context, snake);
+  
+  // Game Interval
+  setInterval(function() {gameDraw.drawStage();}, snake.stage.conf.fps);
+};
+
+
+/**
+ * Window Load
+ */
+window.onload = function() {
+  var snake = new Game.Snake('stage', {fps: 100, size: 4});
+};
+
+      </script>
+    
+  </body>
+</html>
